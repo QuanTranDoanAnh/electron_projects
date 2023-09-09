@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
+const menu = require('./menu');
 const path = require('node:path')
 
 const createWindow = () => {
@@ -17,6 +18,7 @@ app.whenReady().then(() => {
     createWindow()
 
 })
+Menu.setApplicationMenu(menu);
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
