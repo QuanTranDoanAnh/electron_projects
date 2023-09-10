@@ -30,7 +30,22 @@
   <script>
     const editor = new SimpleMDE({
       element: document.getElementById('editor')
-    }); 
+    });
+    window.electronAPI.onEditorEvent((event, arg) => {
+      console.log(arg);
+      // send message back to main process
+      event.sender.send('editor-reply', `Received ${arg}`);
+      if (arg === 'toggle-bold') {
+        editor.toggleBold();
+      }
+      if (arg === 'toggle-italic') {
+        editor.toggleItalic();
+      }
+      if (arg === 'toggle-strikethrough') {
+        editor.toggleStrikethrough();
+      }
+    });
+    window.electronAPI.sendEditorReply('Page Loaded');
   </script>
 </body>
 

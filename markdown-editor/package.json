@@ -1,13 +1,14 @@
 {
   "name": "markdown-editor",
   "version": "1.0.0",
-  "description": "",
+  "description": "Markdown Editor App",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "DEBUG=true electron .",
+    "build:macos": "electron-builder --macos --dir"
   },
   "keywords": [],
-  "author": "",
+  "author": "QuanTDA",
   "license": "ISC",
   "devDependencies": {
     "electron": "^26.2.0",
