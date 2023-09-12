@@ -8,5 +8,6 @@ contextBridge.exposeInMainWorld('versions', {
 })
 contextBridge.exposeInMainWorld('electronAPI', {
   onEditorEvent: (callback) => ipcRenderer.on('editor-event', callback),
-  sendEditorReply: (reply) => ipcRenderer.send('editor-reply', reply)
+  sendEditorReply: (reply) => ipcRenderer.send('editor-reply', reply),
+  onLoadFileContent: (callback) => ipcRenderer.on('load', callback),
 });
